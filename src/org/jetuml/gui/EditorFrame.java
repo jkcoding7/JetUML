@@ -236,6 +236,11 @@ public class EditorFrame extends BorderPane
 						UserPreferences.instance().getBoolean(BooleanPreference.autoEditNode),
 						event -> UserPreferences.instance().setBoolean(BooleanPreference.autoEditNode, 
 								((CheckMenuItem) event.getSource()).isSelected())),
+				
+				factory.createCheckMenuItem("view.dark_mode", false, 
+						UserPreferences.instance().getBoolean(BooleanPreference.darkMode),
+						event -> UserPreferences.instance().setBoolean(BooleanPreference.darkMode, 
+								((CheckMenuItem) event.getSource()).isSelected())),
 		
 				factory.createMenuItem("view.diagram_size", false, event -> new DiagramSizeDialog(aMainStage).show()),
 				factory.createMenuItem("view.font", false, event -> new FontDialog(aMainStage).show()),
