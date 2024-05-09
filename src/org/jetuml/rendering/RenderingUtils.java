@@ -39,7 +39,8 @@ import javafx.scene.text.Font;
  */
 public final class RenderingUtils
 {
-	private static final DropShadow DROP_SHADOW = new DropShadow(3, 3, 3, Color.LIGHTGRAY);
+	//private static final DropShadow DROP_SHADOW = new DropShadow(3, 3, 3, Color.LIGHTGRAY);
+	private static final DropShadow DROP_SHADOW = new DropShadow(3, 3, 3, Color.web("48484AFF"));
 	private static final int ARC_SIZE = 20;
 	
 	private RenderingUtils()
@@ -138,7 +139,7 @@ public final class RenderingUtils
 	public static void drawRectangle( GraphicsContext pGraphics, Rectangle pRectangle)
 	{
 		assert pGraphics != null && pRectangle != null;
-		pGraphics.setFill(Color.GREY);
+		pGraphics.setFill(Color.web("#2C2C2EFF"));
 		pGraphics.setEffect(DROP_SHADOW);
 		pGraphics.fillRect(pRectangle.getX() + 0.5, pRectangle.getY() + 0.5, pRectangle.getWidth(), pRectangle.getHeight());
 		pGraphics.setEffect(null);
