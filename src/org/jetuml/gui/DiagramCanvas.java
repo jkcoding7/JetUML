@@ -240,7 +240,7 @@ StringPreferenceChangeHandler
 	public void paintPanel()
 	{
 		GraphicsContext context = getGraphicsContext2D();
-		context.setFill(Color.WHITE); 
+		context.setFill(Color.GREY); 
 		context.fillRect(0, 0, getWidth(), getHeight());
 		if(UserPreferences.instance().getBoolean(BooleanPreference.showGrid)) 
 		{

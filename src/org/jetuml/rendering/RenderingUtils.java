@@ -137,7 +137,8 @@ public final class RenderingUtils
 	 */
 	public static void drawRectangle( GraphicsContext pGraphics, Rectangle pRectangle)
 	{
-		assert pGraphics != null && pRectangle != null;
+		assert pGraphics != null && pRectangle != null;
+		pGraphics.setFill(Color.GREY);
 		pGraphics.setEffect(DROP_SHADOW);
 		pGraphics.fillRect(pRectangle.getX() + 0.5, pRectangle.getY() + 0.5, pRectangle.getWidth(), pRectangle.getHeight());
 		pGraphics.setEffect(null);
@@ -157,6 +158,7 @@ public final class RenderingUtils
 	public static void drawLine(GraphicsContext pGraphics, int pX1, int pY1, int pX2, int pY2, LineStyle pStyle)
 	{
 		double[] oldDash = pGraphics.getLineDashes();
+		pGraphics.setStroke(Color.WHITE);
 		pGraphics.setLineDashes(pStyle.getLineDashes());
 		pGraphics.strokeLine(pX1 + 0.5, pY1 + 0.5, pX2 + 0.5, pY2 + 0.5);
 		pGraphics.setLineDashes(oldDash);
@@ -175,7 +177,7 @@ public final class RenderingUtils
 	{
 		Font font = pGraphics.getFont();
 		pGraphics.setFont(pFont);
-		pGraphics.setFill(Color.BLACK);
+		pGraphics.setFill(Color.WHITE);
 		pGraphics.fillText(pText, pX + 0.5, pY + 0.5);
 		pGraphics.setFont(font);
 		pGraphics.setFill(Color.WHITE);
