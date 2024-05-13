@@ -17,12 +17,12 @@
 {
 	-fx-background-color: transparent;
 	-fx-font-size: 17pt;
-	-fx-text-fill: dimgrey;
+	-fx-text-fill: white;
 }
 
 .welcome-tab-panel .button:hover
 {
-	-fx-text-fill: black;
+	-fx-text-fill: white;
 	-fx-font-size: 17pt;
 }
 
