@@ -1,4 +1,64 @@
-.menu-bar
-{
+.root {
+  -tab-heading-color: black;
+  -menu-color: dodgerblue;
+  -data-color: darksalmon;
+  -theme-color: darkviolet;
+  -name-color: #702510;
+  -background-color: #080838;
+  -text-color: white;
+}
+
+/* The header space where the tabs are stacked */
+.tab-header-background {
+  -fx-background-color: -tab-heading-color;
+}
+
+/* The menu bar */
+.menu-bar {
+  -fx-background-color: -menu-color;
+}
+
+/* All text in the menu */
+.menu .label {
+  -fx-text-fill: -text-color;
+}
+
+/* The context menus */
+.context-menu {
+  -fx-background-color: -data-color;
+}
+
+/* The welcome tab */
+.tab-pane {
+  -fx-background-color: -theme-color;
+}
+
+/* Down button to select tab */
+.tab-down-button {
   -fx-background-color: green;
+}
+
+/* The tab */
+.tab {
+  -fx-background-color: blue;
+}
+
+/* The text in the tab */
+.tab-label {
+  -fx-text-fill: -text-color;
+}
+
+/* The tool bar */
+.tool-bar {
+  -fx-background-color: pink;
+}
+
+/* Toggle buttons on the tool bar */
+.toggle-button {
+  -fx-background-color: indigo;
+}
+
+/* Copy to clipboard button */
+.button {
+  -fx-background-color: indigo;
 }

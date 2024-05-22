@@ -95,11 +95,13 @@ public class DiagramTab extends Tab implements MouseDraggedGestureHandler, KeyEv
 		pane.scaleXProperty().bind(aZoom);
 		pane.scaleYProperty().bind(aZoom);
 		
+		StackPane test = new StackPane(new Group(pane));
+		test.setStyle("-fx-background-color: #636366FF"); //greys the backdrop of canvas
 		// First, wrap the StackPane in a Group to allow the scrolling to be based around the visual bounds
 		// of the canvas rather than its layout bounds.
 		// Then we wrap the Group within an additional, resizable StackPane that can grow to fit the parent
 		// ScrollPane and thus center the decorated canvas.
-		ScrollPane scroll = new ScrollPane(new StackPane(new Group(pane)));
+		ScrollPane scroll = new ScrollPane(test);
 		
 		// The call below is necessary to removes the focus highlight around the Canvas
 		// See issue #250

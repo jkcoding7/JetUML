@@ -99,13 +99,11 @@ public class EditorFrame extends BorderPane
 	{
 		aMainStage = pMainStage;
 		aRecentFiles.deserialize(Preferences.userNodeForPackage(JetUML.class).get("recent", "").trim());
-
+		getStylesheets().add(getClass().getResource("EditorFrame.css").toExternalForm());
 		MenuBar menuBar = new MenuBar();
 		setTop(menuBar);
-		menuBar.setStyle("-fx-background-color: #636366FF");
 		
 		TabPane tabPane = new TabPane();
-		tabPane.setStyle("-fx-background-color: #3A3A3CFF");
 //		tabPane.setTabDragPolicy(TabPane.TabDragPolicy.REORDER); // This JavaFX feature is too buggy to use at the moment see issue #455
 		tabPane.getSelectionModel().selectedItemProperty().addListener((pValue, pOld, pNew) -> setMenuVisibility());
 		setCenter( tabPane );
