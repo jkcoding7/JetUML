@@ -56,6 +56,7 @@ public class AboutDialog
 	{
 		prepareStage(pOwner);
 		aStage.setScene(createScene());
+		aStage.getScene().getStylesheets().add(getClass().getResource("DarkModeDialog.css").toExternalForm());
 	}
 	
 	private void prepareStage(Stage pOwner) 
@@ -96,7 +97,7 @@ public class AboutDialog
 		
 		final int padding = 15;
 		HBox layout = new HBox(padding);
-		layout.setStyle("-fx-background-color: gainsboro;");
+		//layout.setStyle("-fx-background-color: gainsboro;");
 		layout.setPadding(new Insets(padding));
 		layout.setAlignment(Pos.CENTER_LEFT);
 		

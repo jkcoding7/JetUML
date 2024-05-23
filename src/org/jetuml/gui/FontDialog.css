@@ -1,7 +1,3 @@
-.window .title {
-  -fx-text-fill: #FF0000; /* Set the text color to red */
-}
-
 .font-button
 {
 	-fx-body-color: linear-gradient(snow, lightgray);

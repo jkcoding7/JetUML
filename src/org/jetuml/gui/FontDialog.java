@@ -82,7 +82,7 @@ public class FontDialog
 	{
 		prepareStage(pOwner);
 		aStage.setScene(createScene());
-		aStage.getScene().getStylesheets().add(getClass().getResource("FontDialog.css").toExternalForm());
+		aStage.getScene().getStylesheets().add(getClass().getResource("DarkModeDialog.css").toExternalForm());
 	}
 	
 	private void prepareStage(Stage pOwner) 
