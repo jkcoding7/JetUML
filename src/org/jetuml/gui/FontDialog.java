@@ -40,6 +40,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
@@ -87,9 +89,13 @@ public class FontDialog
 	{
 		aStage.setTitle(RESOURCES.getString("dialog.font.title"));
 		aStage.getIcons().add(new Image(RESOURCES.getString("application.icon")));
-		aStage.setOnCloseRequest(pEvent ->
+		aStage.addEventHandler(KeyEvent.KEY_PRESSED, pEvent -> 
 		{
-			restoreUserSettings();
+			if( pEvent.getCode() == KeyCode.ESCAPE ) 
+			{
+				restoreUserSettings();
+				aStage.close();
+			}
 		});
 	}
 	
