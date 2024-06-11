@@ -21,6 +21,7 @@
 package org.jetuml.rendering;
 
 import org.jetuml.geom.Rectangle;
+import org.jetuml.gui.DiagramColor;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.effect.DropShadow;
@@ -39,124 +40,11 @@ import javafx.scene.text.Font;
  */
 public final class RenderingUtils
 {
-	public static final Color WHITE = Color.WHITE;
-	public static final Color BLACK = Color.BLACK;
-//	public static final Color DARK_MODE_FILL_COLOR = Color.web("#373e43");
-	public static final Color DARK_MODE_FILL_COLOR = Color.web("#1f1f1f");
-	public static final DropShadow LIGHT_MODE_DROPSHADOW = new DropShadow(3, 3, 3, Color.LIGHTGRAY);
-	public static final DropShadow DARK_MODE_DROPSHADOW = new DropShadow(3, 3, 3, Color.web("#2f2f34"));
-	public static final Color LIGHT_MODE_NOTE_COLOR = Color.color(0.9f, 0.9f, 0.6f); // Pale yellow
-	public static final Color DARK_MODE_NOTE_COLOR = Color.web("#1e3f66");
-	public static final Color DARK_MODE_CANVAS_COLOR = Color.web("#070707");
 	private static final int ARC_SIZE = 20;
-	private static Color aFill = WHITE;
-	private static Color aStroke = BLACK;
-	private static DropShadow aShadow = LIGHT_MODE_DROPSHADOW;
-	private static Color aNoteColor = LIGHT_MODE_NOTE_COLOR;
-	private static Color aCanvasColor = WHITE;
+	private static final DiagramColor COLOR_TRAY = new DiagramColor();
 	
 	private RenderingUtils()
 	{}
-	
-	/**
-	 * Getter for fill color.
-	 * 
-	 * @return The fill color.
-	 */	
-	public static Color getFill()
-	{
-		return aFill;
-	}
-	
-	/**
-	 * Getter for stroke color.
-	 * 
-	 * @return The stroke color.
-	 */
-	public static Color getStroke()
-	{
-		return aStroke;
-	}
-	
-	/**
-	 * Getter for DropShadow.
-	 * 
-	 * @return The DropShadow.
-	 */
-	public static DropShadow getDropShadow()
-	{
-		return aShadow;
-	}
-	
-	/**
-	 * Getter for note color.
-	 * 
-	 * @return The note color.
-	 */
-	public static Color getNoteColor()
-	{
-		return aNoteColor;
-	}
-	
-	/**
-	 * Getter for canvas color.
-	 * 
-	 * @return The canvas color.
-	 */
-	public static Color getCanvasColor()
-	{
-		return aCanvasColor;
-	}
-	
-	/**
-	 * Setter for fill color.
-	 * 
-	 * @return The fill color.
-	 */
-	public static void setFill(Color pColor)
-	{
-		aFill = pColor;
-	}
-	
-	/**
-	 * Setter for stroke color.
-	 * 
-	 * @return The stroke color.
-	 */
-	public static void setStroke(Color pColor)
-	{
-		aStroke = pColor;
-	}
-	
-	/**
-	 * Setter for DropShadow.
-	 * 
-	 * @return The DropShadow.
-	 */
-	public static void setDropShadow(DropShadow pShadow)
-	{
-		aShadow = pShadow;
-	}
-	
-	/**
-	 * Setter for note color.
-	 * 
-	 * @return The note color.
-	 */
-	public static void setNoteColor(Color pColor)
-	{
-		aNoteColor = pColor;
-	}
-	
-	/**
-	 * Setter for canvas color.
-	 * 
-	 * @return The canvas color.
-	 */
-	public static void setCanvasColor(Color pColor)
-	{
-		aCanvasColor = pColor;
-	}
 	
 	/**
 	 * Draws a circle with default attributes, without a drop shadow.
@@ -190,10 +78,10 @@ public final class RenderingUtils
 		Paint oldFill = pGraphics.getFill();
 		Paint oldStroke = pGraphics.getStroke();
 		pGraphics.setFill(pFill);
-		pGraphics.setStroke(aStroke);
+		pGraphics.setStroke(COLOR_TRAY.getStrokeColor());
 		if( pShadow )
 		{
-			pGraphics.setEffect(aShadow);
+			pGraphics.setEffect(COLOR_TRAY.getDropShadow());
 		}
 		pGraphics.fillOval(pX + 0.5, pY + 0.5, pWidth, pHeight);
 		pGraphics.strokeOval(pX + 0.5, pY + 0.5, pWidth, pHeight);
@@ -213,9 +101,9 @@ public final class RenderingUtils
 		assert pGraphics != null && pRectangle != null;
 		Paint oldFill = pGraphics.getFill();
 		Paint oldStroke = pGraphics.getStroke();
-		pGraphics.setFill(aFill);
-		pGraphics.setStroke(aStroke);
-		pGraphics.setEffect(aShadow);
+		pGraphics.setFill(COLOR_TRAY.getFillColor());
+		pGraphics.setStroke(COLOR_TRAY.getStrokeColor());
+		pGraphics.setEffect(COLOR_TRAY.getDropShadow());
 		pGraphics.fillRoundRect(pRectangle.x() + 0.5, pRectangle.y() + 0.5, 
 				pRectangle.width(), pRectangle.height(), ARC_SIZE, ARC_SIZE );
 		pGraphics.setEffect(null);
@@ -262,9 +150,9 @@ public final class RenderingUtils
 		assert pGraphics != null && pRectangle != null;
 		Paint oldFill = pGraphics.getFill();
 		Paint oldStroke = pGraphics.getStroke();
-		pGraphics.setFill(aFill);
-		pGraphics.setStroke(aStroke);
-		pGraphics.setEffect(aShadow);
+		pGraphics.setFill(COLOR_TRAY.getFillColor());
+		pGraphics.setStroke(COLOR_TRAY.getStrokeColor());
+		pGraphics.setEffect(COLOR_TRAY.getDropShadow());
 		pGraphics.fillRect(pRectangle.x() + 0.5, pRectangle.y() + 0.5, pRectangle.width(), pRectangle.height());
 		pGraphics.setEffect(null);
 		pGraphics.strokeRect(pRectangle.x() + 0.5, pRectangle.y() + 0.5, pRectangle.width(), pRectangle.height());
@@ -286,7 +174,7 @@ public final class RenderingUtils
 	{
 		Paint oldStroke = pGraphics.getStroke();
 		double[] oldDash = pGraphics.getLineDashes();
-		pGraphics.setStroke(aStroke);
+		pGraphics.setStroke(COLOR_TRAY.getStrokeColor());
 		pGraphics.setLineDashes(pStyle.getLineDashes());
 		pGraphics.strokeLine(pX1 + 0.5, pY1 + 0.5, pX2 + 0.5, pY2 + 0.5);
 		pGraphics.setStroke(oldStroke);
@@ -306,7 +194,7 @@ public final class RenderingUtils
 	{
 		Font font = pGraphics.getFont();
 		pGraphics.setFont(pFont);
-		pGraphics.setFill(aStroke); // The fill color for the font is the stroke color.
+		pGraphics.setFill(COLOR_TRAY.getStrokeColor()); // The fill color for the font is the stroke color.
 		pGraphics.fillText(pText, pX + 0.5, pY + 0.5);
 		pGraphics.setFont(font);
 		pGraphics.setFill(Color.WHITE);
