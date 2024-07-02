@@ -26,5 +26,6 @@ module jetuml {
 	requires transitive javafx.graphics;
 	requires static org.junit.jupiter.api;
 	requires static org.junit.jupiter.params;
+	requires javafx.web;
 	exports org.jetuml;
 }

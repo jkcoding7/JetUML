@@ -262,6 +262,7 @@ public class EditorFrame extends BorderPane implements BooleanPreferenceChangeHa
 		pMenuBar.getMenus().add(factory.createMenu("help", false,
 				factory.createMenuItem("help.tips", false, event -> new TipDialog(aDialogStage).show()),
 				factory.createMenuItem("help.guide", false, event -> JetUML.openBrowser(USER_MANUAL_URL)),
+				factory.createMenuItem("help.guide", false, event -> new UserGuideView().show()),
 				factory.createMenuItem("help.about", false, event -> new AboutDialog(aDialogStage).show())));
 	}
 	
